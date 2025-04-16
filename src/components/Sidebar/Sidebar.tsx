@@ -1,4 +1,4 @@
-import { Home, Inbox, Search, Settings } from "lucide-react";
+import { Home, Inbox, BriefcaseBusiness, Contact, } from "lucide-react";
 import { RefObject } from "react";
 
 import {
@@ -11,13 +11,15 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import { handleScroll } from "@/hooks/handleScroll";
 
 interface SidebarProps {
   landingRef: RefObject<HTMLDivElement>;
   aboutRef: RefObject<HTMLDivElement>;
+  portfolioRef: RefObject<HTMLDivElement>;
 }
 
-export function AppSidebar({ landingRef, aboutRef }: SidebarProps) {
+export function AppSidebar({ landingRef, aboutRef, portfolioRef }: SidebarProps) {
   const items = [
     {
       title: "Home",
@@ -30,25 +32,16 @@ export function AppSidebar({ landingRef, aboutRef }: SidebarProps) {
       icon: Inbox,
     },
     {
-      title: "Search",
-      ref: null,
-      icon: Search,
+      title: "Portfolio",
+      ref: portfolioRef,
+      icon: BriefcaseBusiness,
     },
     {
-      title: "Settings",
+      title: "Contact",
       ref: null,
-      icon: Settings,
+      icon: Contact
     },
   ];
-
-  function handleScroll(ref: RefObject<HTMLDivElement>) {
-    if (ref?.current) {
-      window.scrollTo({
-        top: ref.current.offsetTop,
-        behavior: "smooth",
-      });
-    }
-  }
 
   return (
     <Sidebar className="!bg-[--sidebar-background] !text-[--sidebar-foreground] border border-[--sidebar-border]">
