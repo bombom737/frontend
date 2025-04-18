@@ -5,7 +5,6 @@ import LandingPage from "../components/LandingPage/LandingPage";
 import AboutPage from "@/components/AboutPage/AboutPage";
 import "./globals.css";
 import PortfolioPage from "@/components/PortfolioPage/PortfolioPage";
-import { ZoomableImageComponent } from "@/components/ZoomableImage/ZoomableImage";
 
 export default function MainPage() {
   const landingRef = useRef<HTMLDivElement>(null!);
@@ -17,7 +16,7 @@ export default function MainPage() {
       <AppSidebar landingRef={landingRef} aboutRef={aboutRef} portfolioRef={portfolioRef} />
       <div>
         <div ref={landingRef}>
-          <LandingPage />
+          <LandingPage aboutRef={aboutRef} />
         </div>
         <div ref={aboutRef}>
           <AboutPage />

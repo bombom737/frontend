@@ -1,4 +1,11 @@
-function LandingPage() {
+import { handleScroll } from "@/hooks/handleScroll";
+import { RefObject } from "react";
+
+interface Props {
+  aboutRef: RefObject<HTMLDivElement>;
+}
+
+function LandingPage({ aboutRef }: Props) {
   return (
     <div className="flex w-[100vw] h-[100vh] bg-[#fafafa] overflow-x-hidden !mr-[19rem]">
       <div className="flex-col h-full w-[100vw] bg-[url('/shimon-landing-page.jpg')] bg-cover bg-no-repeat bg-left !p-10 !mr-[19rem]">
@@ -10,7 +17,7 @@ function LandingPage() {
             <div className="float-left w-[200px] h-[70px] flex items-center justify-center !mt-5">
               <a
                 className="rounded-md bg-[#2ba6ec] flex items-center justify-center h-full w-full font-bold transition-all duration-500 ease-in-out hover:bg-[#2462b3]"
-                href=""
+                onClick={() => handleScroll(aboutRef)}
               >
                 <span className='text-lg'>About Me</span>
               </a>
