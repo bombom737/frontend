@@ -5,6 +5,7 @@ import LandingPage from "../components/LandingPage/LandingPage";
 import AboutPage from "@/components/AboutPage/AboutPage";
 import "./globals.css";
 import PortfolioPage from "@/components/PortfolioPage/PortfolioPage";
+import { ZoomableImageComponent } from "@/components/ZoomableImage/ZoomableImage";
 
 export default function MainPage() {
   const landingRef = useRef<HTMLDivElement>(null!);
