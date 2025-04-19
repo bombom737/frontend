@@ -1,5 +1,6 @@
 import { validationErrors } from '@/app/types/types';
 import { validateMessage } from '@/hooks/validateMessage';
+import { sendEmail } from '@/lib/resend';
 import React, { useState, useRef }  from 'react'
 
 function ContactPage() {
@@ -28,6 +29,13 @@ function ContactPage() {
   ) {
     e.preventDefault();
     setErrors(validateMessage(nameRef, subjectRef, emailRef, phoneNumberRef, messageRef));
+
+    if (Object.values(errors).every((error) => !error)) {
+      sendEmail(emailRef.current!.value, subjectRef.current!.value, messageRef.current!.value)
+      
+      console.log("Email sent!");
+      
+    }
   };
 
   return (
@@ -98,21 +106,21 @@ function ContactPage() {
               </div>}
           </div>
         </div>
-          <div className="w-full h-[30%] pt-5">
-            <p className='text-white font-bold text-xl pb-2'>Message</p>
-            <textarea 
-              ref={messageRef}
-              placeholder='Write your message here' 
-              className='resize-none border border-[#6d6d6d] rounded h-full w-[95%] p-5 text-white bg-transparent
-                focus:outline-none focus:border-white hover:border-white 
-                transition-colors duration-500 ease-in-out'
-              />
-              {errors.message && 
-              <div className='w-[70%]'>
-                <p className='text-red-600 pt-1 w-full'>Please enter your message.</p> 
-              </div>}
-          </div>
-        <div className="float-left w-[200px] h-[70px] flex items-center justify-center !mt-5">
+        <div className="w-full h-[20%]">
+          <p className='text-white font-bold text-xl pb-2'>Message</p>
+          <textarea 
+            ref={messageRef}
+            placeholder='Write your message here' 
+            className='resize-none border border-[#6d6d6d] rounded h-full w-[95%] p-5 text-white bg-transparent
+              focus:outline-none focus:border-white hover:border-white 
+              transition-colors duration-500 ease-in-out'
+            />
+            {errors.message && 
+            <div className='w-[70%]'>
+              <p className='text-red-600 pt-1 w-full'>Please enter your message.</p> 
+            </div>}
+        </div>
+        <div className="w-[200px] h-[70px] flex mt-20">
           <a
             className="rounded-md bg-[#2ba6ec] flex items-center justify-center h-full w-full font-bold transition-all duration-500 ease-in-out hover:bg-[#ffffff]"
             onClick={(e) => handleSubmit(e, nameRef, subjectRef, emailRef, phoneNumberRef, messageRef)}
