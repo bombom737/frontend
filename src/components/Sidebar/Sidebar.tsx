@@ -17,9 +17,10 @@ interface SidebarProps {
   landingRef: RefObject<HTMLDivElement>;
   aboutRef: RefObject<HTMLDivElement>;
   portfolioRef: RefObject<HTMLDivElement>;
+  contactRef: RefObject<HTMLDivElement>;
 }
 
-export function AppSidebar({ landingRef, aboutRef, portfolioRef }: SidebarProps) {
+export function AppSidebar({ landingRef, aboutRef, portfolioRef, contactRef }: SidebarProps) {
   const items = [
     {
       title: "Home",
@@ -38,7 +39,7 @@ export function AppSidebar({ landingRef, aboutRef, portfolioRef }: SidebarProps)
     },
     {
       title: "Contact",
-      ref: null,
+      ref: contactRef,
       icon: Contact
     },
   ];

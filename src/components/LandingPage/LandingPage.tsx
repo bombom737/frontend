@@ -16,10 +16,10 @@ function LandingPage({ aboutRef }: Props) {
             <h1 className='text-4xl drop-shadow-2xl text-[#d4d4d4]'>Glad to see you here.</h1>
             <div className="float-left w-[200px] h-[70px] flex items-center justify-center !mt-5">
               <a
-                className="rounded-md bg-[#2ba6ec] flex items-center justify-center h-full w-full font-bold transition-all duration-500 ease-in-out hover:bg-[#2462b3]"
+                className="rounded-md bg-[#2ba6ec] flex items-center justify-center h-full w-full font-bold transition-all duration-500 ease-in-out hover:bg-[#ffffff]"
                 onClick={() => handleScroll(aboutRef)}
               >
-                <span className='text-lg'>About Me</span>
+                <span className='text-xl h-full w-full flex justify-center items-center transition-all duration-500 ease-in-out hover:text-black'>About Me</span>
               </a>
             </div>
             <div>

@@ -1,4 +1,4 @@
-import { artwork } from '@/app/types/artwork';
+import { artwork } from '@/app/types/types';
 import React, { useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
 

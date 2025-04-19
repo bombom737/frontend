@@ -1,4 +1,4 @@
-import { artwork } from "../types/artwork";
+import { artwork } from "../types/types";
 
 export const artworks: Array<artwork> = [
     {
