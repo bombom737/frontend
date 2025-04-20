@@ -1,6 +1,7 @@
 import { validationErrors } from '@/app/types/types';
 import { validateMessage } from '@/hooks/validateMessage';
 import { sendEmail } from '@/lib/resend';
+import { Mail, PhoneCall } from 'lucide-react';
 import React, { useState, useRef }  from 'react'
 
 function ContactPage() {
@@ -12,6 +13,8 @@ function ContactPage() {
     phoneNumber: false,
     message: false
   });
+
+  const [emailSuccess, setEmailSuccess] = useState<boolean>(false);
   
   const nameRef = useRef<HTMLInputElement>(null);
   const subjectRef = useRef<HTMLInputElement>(null);
@@ -31,10 +34,11 @@ function ContactPage() {
     setErrors(validateMessage(nameRef, subjectRef, emailRef, phoneNumberRef, messageRef));
 
     if (Object.values(errors).every((error) => !error)) {
-      sendEmail(emailRef.current!.value, subjectRef.current!.value, messageRef.current!.value)
-      
-      console.log("Email sent!");
-      
+      sendEmail(emailRef.current!.value, nameRef.current!.value,  subjectRef.current!.value, messageRef.current!.value)
+      setEmailSuccess(true);
+      setTimeout(() => {
+        setEmailSuccess(false);
+      }, 5000)
     }
   };
 
@@ -120,13 +124,58 @@ function ContactPage() {
               <p className='text-red-600 pt-1 w-full'>Please enter your message.</p> 
             </div>}
         </div>
-        <div className="w-[200px] h-[70px] flex mt-20">
+        <div className="w-[200px] h-[110px] flex flex-col mt-20">
           <a
-            className="rounded-md bg-[#2ba6ec] flex items-center justify-center h-full w-full font-bold transition-all duration-500 ease-in-out hover:bg-[#ffffff]"
+            className="rounded-md bg-[#2ba6ec] flex items-center justify-center h-[70px] w-full font-bold transition-all duration-500 ease-in-out hover:bg-[#ffffff]"
             onClick={(e) => handleSubmit(e, nameRef, subjectRef, emailRef, phoneNumberRef, messageRef)}
           >
             <span className='text-white text-2xl h-full w-full flex justify-center items-center transition-all duration-500 ease-in-out hover:text-black'>Submit</span>
           </a>
+          {emailSuccess && <p className='text-green-500 pt-3 pl-1'>Email sent successfully!</p>} 
+        </div>
+      </div> 
+      <div className='!pt-40 !pl-10 !mr-[19rem] w-[20%]'> 
+        <h1 className='text-[#ffffff] text-5xl '>Tel Aviv Studio Address,</h1>
+        <h1 className='text-[#ffffff] text-5xl '>Tel Aviv</h1>
+        <div className='pt-10 grid grid-rows-1'>
+          <div className='flex flex-col gap-10'>
+            <div className='flex flex-row'>
+              <div className='w-[50px] h-[50px] rounded-[100%] bg-[#2ba6ec] relative'>
+                <PhoneCall className='absolute top-[28%] left-[25%]'/>
+              </div>
+              <div className='pl-3'>
+                <p className='text-white'>Contact Phone</p>
+                <p className='text-white'>+972-55-555-5555</p>
+              </div>
+            </div>
+            <div className='flex flex-row'>
+              <div className='w-[50px] h-[50px] rounded-[100%] bg-[#2ba6ec] relative'>
+              <Mail className='absolute top-[28%] left-[25%]'/>
+              </div>
+              <div className='pl-3'>
+                <p className='text-white'>Contact Email</p>
+                <p className='text-white'>s@pintoart.com</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p className='!text-white !pt-9'>
+            Designed and built by{' '}
+            <a
+              href='https://www.linkedin.com/in/ilan-pinto-b27097346/'
+              className='!text-[#2ba6ec] hover:!text-white !transition-colors ease-in !duration-300'
+            >
+              Ilan Pinto
+            </a>{' '}
+            and{' '}
+            <a
+              href='https://www.linkedin.com/in/uri-henig/'
+              className='!text-[#2ba6ec] hover:!text-white !transition-colors ease-in !duration-300'
+            >
+              Uri Henig
+            </a>.
+          </p>
         </div>
       </div>
     </div>
