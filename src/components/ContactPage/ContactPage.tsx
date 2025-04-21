@@ -1,7 +1,7 @@
 import { validationErrors } from '@/app/types/types';
 import { validateMessage } from '@/hooks/validateMessage';
 import { sendEmail } from '@/lib/resend';
-import { Mail, PhoneCall } from 'lucide-react';
+import { Mail, PhoneCall, Map } from 'lucide-react';
 import React, { useState, useRef }  from 'react'
 
 function ContactPage() {
@@ -136,23 +136,49 @@ function ContactPage() {
         </div>
       </div> 
       <div className='!pt-40 !pl-10 !mr-[19rem] w-[22%]'> 
-        <h1 className='text-[#ffffff] text-5xl '>Shvil Hameretz 1,</h1>
-        <h1 className='text-[#ffffff] text-5xl '>Tel Aviv</h1>
+      <h1 className='text-5xl text-white'>Contact Information</h1>
         <div className='pt-10 grid grid-rows-1'>
           <div className='flex flex-col gap-10'>
             <div className='flex flex-row'>
-              <div className='w-[50px] h-[50px] rounded-[100%] bg-[#2ba6ec] relative'>
-                <PhoneCall className='absolute top-[28%] left-[25%]'/>
+              <a 
+              href="https://maps.app.goo.gl/hA7jcmaRN1jqnrY36"
+              className='!text-white hover:!text-black !transition-colors ease-in !duration-300'
+              >
+                <div className='w-[50px] h-[50px] rounded-[100%] bg-[#2ba6ec] relative
+                hover:bg-white !transition-colors ease-in !duration-300'>
+                  <Map className='absolute top-[28%] left-[25%]'/>
+                </div>
+              </a>
+              <div className='pl-3'>
+                <p className='text-white'>Studio Address</p>
+                <p className='text-white'>Shvil Hameretz 1, Tel Aviv</p>
               </div>
+            </div>
+            <div className='flex flex-row'>
+              <a 
+              href="https://wa.me/972526298770"
+              className='!text-white hover:!text-black !transition-colors ease-in !duration-300'
+              >
+                <div className='w-[50px] h-[50px] rounded-[100%] bg-[#2ba6ec] relative
+                hover:bg-white !transition-colors ease-in !duration-300'>
+                  <PhoneCall className='absolute top-[28%] left-[25%]'/>
+                </div>
+              </a>
               <div className='pl-3'>
                 <p className='text-white'>Contact Phone</p>
                 <p className='text-white'>+972-52-629-8770</p>
               </div>
             </div>
             <div className='flex flex-row'>
-              <div className='w-[50px] h-[50px] rounded-[100%] bg-[#2ba6ec] relative'>
-              <Mail className='absolute top-[28%] left-[25%]'/>
-              </div>
+              <a 
+              href="mailto:s@pintoart.com"
+              className='!text-white hover:!text-black !transition-colors ease-in !duration-300'
+              >
+                <div className='w-[50px] h-[50px] rounded-[100%] bg-[#2ba6ec] relative
+                hover:bg-white !transition-colors ease-in !duration-300'>
+                  <Mail className='absolute top-[28%] left-[25%]'/>
+                </div>
+              </a>
               <div className='pl-3'>
                 <p className='text-white'>Contact Email</p>
                 <p className='text-white'>s@pintoart.com</p>
