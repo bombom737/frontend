@@ -23,7 +23,7 @@ function LandingPage({ aboutRef }: Props) {
               </a>
             </div>
             <div>
-              <h1 className='font-bold text-lg w-[300px] drop-shadow-2xl'>"I find in artworks, and especially in paintings, intertextual truths, and this truth—whatever it may be—has the power to fulfill a promise in which opposites coexist in harmony, in a way that refreshes and to surprises logic."</h1>
+              <h1 className='font-bold text-lg w-[300px] drop-shadow-2xl'>"I find in artworks, and especially in paintings, intertextual truths, and this truth—whatever it may be—has the power to fulfill a promise in which opposites coexist in harmony, in a way that refreshes and surprises logic."</h1>
             </div>
           </div>
         </div>
