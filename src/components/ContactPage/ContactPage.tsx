@@ -31,7 +31,8 @@ function ContactPage() {
     messageRef:React.RefObject<HTMLTextAreaElement | null >,
   ) {
     e.preventDefault();
-    setErrors(validateMessage(nameRef, subjectRef, emailRef, phoneNumberRef, messageRef));
+    const errors = validateMessage(nameRef, subjectRef, emailRef, phoneNumberRef, messageRef);
+    setErrors(errors);
 
     if (Object.values(errors).every((error) => !error)) {
       sendEmail(emailRef.current!.value, nameRef.current!.value,  subjectRef.current!.value, messageRef.current!.value)
@@ -83,7 +84,7 @@ function ContactPage() {
             <input
               ref={emailRef} 
               type="email" 
-              placeholder='Your Email' 
+              placeholder='Your email' 
               className='border border-[#6d6d6d] rounded h-[40px] w-[90%] p-5 text-white bg-transparent
                 focus:outline-none focus:border-white hover:border-white 
                 transition-colors duration-500 ease-in-out'
@@ -97,8 +98,8 @@ function ContactPage() {
             <p className='text-white font-bold text-xl pb-2'>Phone Number</p>
             <input
               ref={phoneNumberRef} 
-              type="tel" 
-              placeholder='Phone Number'
+              type="number" 
+              placeholder='Phone number'
               maxLength={15} 
               className='border border-[#6d6d6d] rounded h-[40px] w-[90%] p-5 text-white bg-transparent
                 focus:outline-none focus:border-white hover:border-white 
@@ -134,8 +135,8 @@ function ContactPage() {
           {emailSuccess && <p className='text-green-500 pt-3 pl-1'>Email sent successfully!</p>} 
         </div>
       </div> 
-      <div className='!pt-40 !pl-10 !mr-[19rem] w-[20%]'> 
-        <h1 className='text-[#ffffff] text-5xl '>Tel Aviv Studio Address,</h1>
+      <div className='!pt-40 !pl-10 !mr-[19rem] w-[22%]'> 
+        <h1 className='text-[#ffffff] text-5xl '>Shvil Hameretz 1,</h1>
         <h1 className='text-[#ffffff] text-5xl '>Tel Aviv</h1>
         <div className='pt-10 grid grid-rows-1'>
           <div className='flex flex-col gap-10'>
@@ -145,7 +146,7 @@ function ContactPage() {
               </div>
               <div className='pl-3'>
                 <p className='text-white'>Contact Phone</p>
-                <p className='text-white'>+972-55-555-5555</p>
+                <p className='text-white'>+972-52-629-8770</p>
               </div>
             </div>
             <div className='flex flex-row'>

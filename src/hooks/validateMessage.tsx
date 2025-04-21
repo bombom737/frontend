@@ -17,7 +17,7 @@ export function validateMessage(
     name: (value: string) => value.trim() !== "",
     subject: (value: string) => value.trim() !== "",
     email: (value: string) => value.trim() !== "",
-    phoneNumber: (value: string) => value.trim() !== "" && value.length <= 15,
+    phoneNumber: (value: string) => value.trim() !== "" && value.length >= 7 && value.length <= 15,
     message: (value: string) => value.trim() !== "",
   };
 

@@ -37,9 +37,6 @@ function AboutPage() {
               and figurative, between modernism and post-modernism, and between
               the particular and the universal.
             </p>
-            <div className="!pt-24">
-              Contact Info Here
-            </div>
           </div>
         </div>
       </div>

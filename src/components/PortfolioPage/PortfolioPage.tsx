@@ -2,7 +2,7 @@ import { artworks } from "@/app/data/artworks";
 import { ZoomableImageComponent } from "../ZoomableImage/ZoomableImage";
 function PortfolioPage() {
     return (
-      <div className="flex flex-col  w-screen h-full bg-[#fafafa] overflow-x-hidden !pt-15 !mr-[21rem]">
+      <div className="flex flex-col  w-screen h-full bg-[#fafafa] overflow-x-hidden !pt-15 !mr-[21rem] !pb-20">
         <h1 className="text-center text-3xl font-bold !mr-[21rem]">Artworks</h1>
         <div className="grid grid-cols-3 gap-8 !mr-[21rem] !pt-15 !p-3">
           {artworks.map((artwork, idx) => (
