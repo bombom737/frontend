@@ -46,7 +46,7 @@ function ContactPage() {
   return (
     <div className='flex w-[100vw] h-[100vh] bg-[#2c2c2c] overflow-x-hidden !mr-[19rem]'>
       <div className='flex flex-col !pt-40 !pl-40 w-[50%]'>
-        <h1 className='text-[#ffffff] text-5xl'>Contact Shimon!</h1>
+        <h1 className='text-[#ffffff] text-5xl'>Contact Shimon</h1>
         <p className='!pt-5 text-xl text-white'>Inquire about Shimon, painting prices, or anything else!</p>
         <div className='!pt-10 grid grid-cols-2 w-full'>
           <div className="w-full h-[100px]">

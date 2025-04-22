@@ -21,7 +21,7 @@ export default function MainPage() {
           <LandingPage aboutRef={aboutRef} />
         </div>
         <div ref={aboutRef}>
-          <AboutPage />
+          <AboutPage portfolioRef={portfolioRef} />
         </div>
         <div ref={portfolioRef}> 
           <PortfolioPage />

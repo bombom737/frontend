@@ -1,6 +1,11 @@
-import React from 'react';
+import { handleScroll } from '@/hooks/handleScroll';
+import React, { RefObject } from 'react';
 
-function AboutPage() {
+interface Props {
+  portfolioRef: RefObject<HTMLDivElement>;
+}
+
+function AboutPage({ portfolioRef }: Props) {
   return (
     <div className="flex w-[100vw] h-[100vh] bg-[#fafafa] overflow-x-hidden !mr-[19rem]">
       <div className="flex-col h-full w-[100vw] bg-[url('/shimon-about-page.jpg')] bg-cover bg-no-repeat bg-left !mr-[19rem]">
@@ -37,6 +42,14 @@ function AboutPage() {
               and figurative, between modernism and post-modernism, and between
               the particular and the universal.
             </p>
+            <div className="float-left w-[200px] h-[70px] flex items-center justify-center !mt-5">
+              <a
+                className="rounded-md bg-[#2ba6ec] flex items-center justify-center h-full w-full font-bold transition-all duration-500 ease-in-out hover:bg-[#ffffff]"
+                onClick={() => handleScroll(portfolioRef)}
+              >
+                <span className='text-xl text-white h-full w-full flex justify-center items-center transition-all duration-500 ease-in-out hover:text-black'>See Artworks</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
